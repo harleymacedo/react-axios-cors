@@ -12,10 +12,10 @@ const ListaProfessores = () => {
 
     const buscarProfessores = async () => {
         try {
-            const url = 'https://node-express-mock-jwt-cors.herokuapp.com/professor/todos';
+            //const url = 'https://node-express-mock-jwt-cors.herokuapp.com/professor/todos';
             const url2 = 'https://node-express-mock-jwt-cors.herokuapp.com/professor/aberto/todos';
             const professoresPesquisados = await axios.get(url2);
-            console.log(professoresPesquisados.data);
+            //console.log(professoresPesquisados.data);
             if (professoresPesquisados.data) {
                 setProfessores(professoresPesquisados.data);
         }
@@ -26,11 +26,11 @@ const ListaProfessores = () => {
     }
 
     return (
-        <div>
+        <div style={{border: 'solid 2px green'}}>
             <h2>Lista de Professores:</h2>
             {professores.map( (professorAtual) => {
                 return (
-                    <CardProfessor nome={professorAtual.nome} area={professorAtual.area} />
+                    <CardProfessor nome={professorAtual.nome} area={professorAtual.area} key={professorAtual.nome} />
                 );
             })}
         </div>
